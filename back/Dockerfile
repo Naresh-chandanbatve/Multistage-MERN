@@ -1,0 +1,24 @@
+FROM node:17 as builder
+
+WORKDIR /app
+
+COPY /package*.json ./
+
+RUN npm i
+
+COPY . .
+
+RUN npm run build
+
+
+
+FROM node:17-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app ./
+
+EXPOSE 5000
+
+CMD ["node", "server.js"]
+
