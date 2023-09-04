@@ -3,10 +3,10 @@ services:
   client:
     image: nareshchandanbatve/mern:client
     ports:
-      - 3000:3000
+      - "3000:3000"
 
   server:
     image: nareshchandanbatve/mern:server
     ports:
-      - 5000:5000
+      - "5000:5000"
 

@@ -5,9 +5,10 @@ import axios from 'axios';
 function App() {
   const [message, setMessage] = useState('');
 
+  const url = 'http://localhost:5000/api' 	
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api')
+    axios.get(url)
       .then(response => setMessage(response.data.message))
       .catch(error => console.error(error));
   }, []);
